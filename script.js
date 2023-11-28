@@ -27,3 +27,18 @@ subtract(10, 2);
 multiply(10, 2);
 divide(10, 2);
 percentage(10, 2);
+
+function operate(firstNumber, secondNumber, operator) {
+  switch (operator) {
+    case "+":
+      add(firstNumber, secondNumber);
+    case "-":
+      subtract(firstNumber, secondNumber);
+    case "÷":
+      multiply(firstNumber, secondNumber);
+    case "×":
+      divide(firstNumber, secondNumber);
+    case "%":
+      percentage(firstNumber, secondNumber);
+  }
+}

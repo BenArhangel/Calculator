@@ -1,5 +1,5 @@
 :root {
-  --bg-main-color: linear-gradient(135deg, #fff, lightgray, gray);
+  --bg-main-color: linear-gradient(135deg, rgb(202, 255, 186), gray);
   --bg-calculator-color: rgb(143, 153, 165);
   --bg-display-color: rgb(124, 235, 148);
 

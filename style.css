@@ -1,7 +1,7 @@
 :root {
   --bg-main-color: linear-gradient(135deg, rgb(202, 255, 186), gray);
-  --bg-calculator-color: rgb(143, 153, 165);
-  --bg-display-color: rgb(124, 235, 148);
+  --bg-calculator-color: rgb(115, 118, 122);
+  --bg-display-color: rgb(102, 211, 125);
 
   /* BORDERS */
 
@@ -52,6 +52,14 @@ body {
   font-size: 27px;
   background-color: var(--btn-bg);
   border: 2px solid var(--border-color);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 0.2s ease-out;
+}
+
+.btn:hover {
+  background-color: #ccc;
+  transition: 0.2s ease-out;
 }
 
 .display {

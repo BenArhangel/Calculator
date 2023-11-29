@@ -75,11 +75,13 @@ body {
 .value {
   font-size: 27px;
   margin: 0 0 10px 0;
+  height: 33px;
 }
 
 .result {
   font-size: 35px;
   margin: 10px 0 0 0;
+  height: 42px;
 }
 
 .operator:hover {

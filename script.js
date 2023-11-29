@@ -6,6 +6,7 @@ let storedNumber = "";
 
 let numbers = document.querySelectorAll(".number");
 let operators = document.querySelectorAll(".operator");
+const displayValue = document.querySelector(".value");
 
 function add(firstNumber, secondNumber) {
   console.log(firstNumber + secondNumber);
@@ -50,12 +51,12 @@ function operate(firstNumber, secondNumber, operator) {
 
 numbers.forEach((number) => {
   number.addEventListener("click", () => {
-    document.getElementById("getValue").innerHTML = number.value;
+    displayValue.innerHTML = number.value;
   });
 });
 
 operators.forEach((op) => {
   op.addEventListener("click", () => {
-    document.getElementById("getValue").innerHTML = op.value;
+    displayValue.innerHTML = op.value;
   });
 });

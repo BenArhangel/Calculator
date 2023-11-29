@@ -55,6 +55,7 @@ body {
   border-radius: 3px;
   cursor: pointer;
   transition: 0.2s ease-out;
+  padding: 0px;
 }
 
 .btn:hover {
@@ -79,4 +80,28 @@ body {
 .result {
   font-size: 35px;
   margin: 10px 0 0 0;
+}
+
+.operator:hover {
+  background-color: rgb(170, 255, 255);
+  transition: 0.2s ease-out;
+}
+
+.equal {
+  grid-column: 3/5;
+  width: 164px;
+}
+
+.clear-all:hover {
+  background-color: rgb(255, 134, 90);
+  transition: 0.2s ease-out;
+}
+
+.clear:hover {
+  background-color: rgb(255, 255, 175);
+  transition: 0.2s ease-out;
+}
+
+.equal:hover {
+  background-color: lightgreen;
 }

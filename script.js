@@ -1,38 +1,32 @@
 let firstNumber = "";
 let secondNumber = "";
 let operator = "";
-
-let storedNumber = "";
-
-let numbers = document.querySelectorAll(".number");
-let operators = document.querySelectorAll(".operator");
+let storedValue = "";
+const numbers = document.querySelectorAll(".number");
+const operators = document.querySelectorAll(".operator");
 const displayValue = document.querySelector(".value");
+const displayResult = document.querySelector(".result");
+const equalSign = document.querySelector(".equal");
 
-function add(firstNumber, secondNumber) {
-  console.log(firstNumber + secondNumber);
+function add(a, b) {
+  a + b;
 }
 
-function subtract(firstNumber, secondNumber) {
-  console.log(firstNumber - secondNumber);
+function subtract(a, b) {
+  a - b;
 }
 
-function multiply(firstNumber, secondNumber) {
-  console.log(firstNumber * secondNumber);
+function multiply(a, b) {
+  a * b;
 }
 
-function divide(firstNumber, secondNumber) {
-  console.log(firstNumber / secondNumber);
+function divide(a, b) {
+  a / b;
 }
 
-function percentage(firstNumber, secondNumber) {
-  console.log((firstNumber / 100) * secondNumber);
+function percentage(a, b) {
+  (a / 100) * b;
 }
-
-add(10, 2);
-subtract(10, 2);
-multiply(10, 2);
-divide(10, 2);
-percentage(10, 2);
 
 function operate(firstNumber, secondNumber, operator) {
   switch (operator) {
@@ -51,12 +45,18 @@ function operate(firstNumber, secondNumber, operator) {
 
 numbers.forEach((number) => {
   number.addEventListener("click", () => {
-    displayValue.innerHTML = number.value;
+    storedValue += number.value;
+    displayValue.innerHTML = storedValue;
   });
 });
 
 operators.forEach((op) => {
   op.addEventListener("click", () => {
-    displayValue.innerHTML = op.value;
+    storedValue += op.value;
+    displayValue.innerHTML = storedValue;
   });
+});
+
+equalSign.addEventListener("click", () => {
+  console.log(operate(firstNumber, secondNumber, operator));
 });

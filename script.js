@@ -28,18 +28,18 @@ function percentage(a, b) {
   (a / 100) * b;
 }
 
-function operate(firstNumber, secondNumber, operator) {
+function operate(numOne, numTwo, operator) {
   switch (operator) {
     case "+":
-      add(firstNumber, secondNumber);
+      add(numOne, numTwo);
     case "-":
-      subtract(firstNumber, secondNumber);
+      subtract(numOne, numTwo);
     case "÷":
-      multiply(firstNumber, secondNumber);
+      multiply(numOne, numTwo);
     case "×":
-      divide(firstNumber, secondNumber);
+      divide(numOne, numTwo);
     case "%":
-      percentage(firstNumber, secondNumber);
+      percentage(numOne, numTwo);
   }
 }
 

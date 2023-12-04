@@ -35,9 +35,9 @@ function operate(numOne, numTwo, operator) {
     case "-":
       subtract(numOne, numTwo);
     case "÷":
-      multiply(numOne, numTwo);
-    case "×":
       divide(numOne, numTwo);
+    case "×":
+      multiply(numOne, numTwo);
     case "%":
       percentage(numOne, numTwo);
   }

@@ -69,7 +69,7 @@ operators.forEach((op) => {
   op.addEventListener("click", () => {
     if (operator !== "") {
       operator = op.value;
-      secondNumber.innerHTML += operator;
+      secondValue.innerHTML += operator;
     } else {
       operator = op.value;
       firstValue.innerHTML += operator;

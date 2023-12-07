@@ -2,81 +2,78 @@ let firstNumber = "";
 let secondNumber = "";
 let operator = "";
 let storedValue = "";
-const firstValue = document.querySelector(".firstValue");
-const secondValue = document.querySelector(".secondValue");
+
 const numbers = document.querySelectorAll(".number");
 const operators = document.querySelectorAll(".operator");
-const displayValue = document.querySelector(".value");
+const displayInput = document.querySelector(".input");
 const displayResult = document.querySelector(".result");
 const equalSign = document.querySelector(".equal");
 
-function add(a, b) {
-  displayResult.innerHTML = Number(a) + Number(b);
+function add(numOne, numTwo) {
+  return parseFloat(numOne) + parseFloat(numTwo);
 }
 
-function subtract(a, b) {
-  displayResult.innerHTML = a - b;
+function subtract(numOne, numTwo) {
+  return parseFloat(numOne) - parseFloat(numTwo);
 }
 
-function multiply(a, b) {
-  displayResult.innerHTML = a * b;
+function multiply(numOne, numTwo) {
+  return parseFloat(numOne) * parseFloat(numTwo);
 }
 
-function divide(a, b) {
-  displayResult.innerHTML = a / b;
+function divide(numOne, numTwo) {
+  return parseFloat(numOne) / parseFloat(numTwo);
 }
 
-function percentage(a, b) {
-  displayResult.innerHTML = (a / 100) * b;
+function percentage(numOne, numTwo) {
+  return parseFloat(numOne / 100) * parseFloat(numTwo);
 }
 
 function operate(numOne, numTwo, operator) {
   switch (operator) {
     case "+":
-      add(numOne, numTwo);
+      result = add(numOne, numTwo);
       break;
     case "-":
-      subtract(numOne, numTwo);
+      result = subtract(numOne, numTwo);
       break;
 
     case "÷":
-      divide(numOne, numTwo);
+      result = divide(numOne, numTwo);
       break;
 
     case "×":
-      multiply(numOne, numTwo);
+      result = multiply(numOne, numTwo);
       break;
 
     case "%":
-      percentage(numOne, numTwo);
+      result = percentage(numOne, numTwo);
       break;
   }
 }
 
 numbers.forEach((number) => {
-  number.addEventListener("click", () => {
+  number.addEventListener("click", (e) => {
     if (operator === "") {
-      firstNumber += number.value;
-      firstValue.innerHTML = firstNumber;
+      storedValue = e.target.value;
+      displayInput.innerHTML += storedValue;
+      firstNumber = storedValue;
     } else {
-      secondNumber += number.value;
-      secondValue.innerHTML = secondNumber;
+      storedValue = e.target.value;
+      displayInput.innerHTML += storedValue;
+      secondNumber = storedValue;
     }
   });
 });
 
 operators.forEach((op) => {
-  op.addEventListener("click", () => {
-    if (operator !== "") {
-      operator = op.value;
-      secondValue.innerHTML += operator;
-    } else {
-      operator = op.value;
-      firstValue.innerHTML += operator;
-    }
+  op.addEventListener("click", (e) => {
+    operator = e.target.value;
+    displayInput.innerHTML += operator;
   });
 });
 
 equalSign.addEventListener("click", () => {
   operate(parseFloat(firstNumber), parseFloat(secondNumber), operator);
+  displayResult.innerHTML = result;
 });

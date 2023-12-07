@@ -22,6 +22,9 @@ function multiply(numOne, numTwo) {
 }
 
 function divide(numOne, numTwo) {
+  if (numOne === 0 || numTwo === 0) {
+    return "Error";
+  }
   return parseFloat(numOne) / parseFloat(numTwo);
 }
 

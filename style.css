@@ -72,13 +72,13 @@ body {
   background: var(--bg-display-color);
 }
 
-.value {
-  font-size: 27px;
+.previous-number {
+  font-size: 25px;
   margin: 0 0 10px 0;
   height: 33px;
 }
 
-.result {
+.current-number {
   font-size: 35px;
   margin: 10px 0 0 0;
   height: 42px;

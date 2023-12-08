@@ -1,12 +1,11 @@
-let firstNumber = "";
-let secondNumber = "";
+let currentNum = "";
+let previousNum = "";
 let operator = "";
-let storedValue = "";
 
 const numbers = document.querySelectorAll(".number");
 const operators = document.querySelectorAll(".operator");
-const displayInput = document.querySelector(".input");
-const displayResult = document.querySelector(".result");
+const displayPreviousNum = document.querySelector(".previous-number");
+const displayCurrentNum = document.querySelector(".current-number");
 const equalSign = document.querySelector(".equal");
 
 function add(numOne, numTwo) {
@@ -35,48 +34,55 @@ function percentage(numOne, numTwo) {
 function operate(numOne, numTwo, operator) {
   switch (operator) {
     case "+":
-      result = add(numOne, numTwo);
-      break;
+      return add(numOne, numTwo);
     case "-":
-      result = subtract(numOne, numTwo);
-      break;
+      return subtract(numOne, numTwo);
 
     case "÷":
-      result = divide(numOne, numTwo);
-      break;
+      return divide(numOne, numTwo);
 
     case "×":
-      result = multiply(numOne, numTwo);
-      break;
+      return multiply(numOne, numTwo);
 
     case "%":
-      result = percentage(numOne, numTwo);
-      break;
+      return percentage(numOne, numTwo);
   }
 }
 
 numbers.forEach((number) => {
   number.addEventListener("click", (e) => {
-    if (operator === "") {
-      storedValue = e.target.value;
-      displayInput.innerHTML += storedValue;
-      firstNumber = storedValue;
-    } else {
-      storedValue = e.target.value;
-      displayInput.innerHTML += storedValue;
-      secondNumber = storedValue;
-    }
+    getNumber(e.target.textContent);
   });
 });
 
 operators.forEach((op) => {
   op.addEventListener("click", (e) => {
-    operator = e.target.value;
-    displayInput.innerHTML += operator;
+    getOperator(e.target.textContent);
   });
 });
 
+function getNumber(num) {
+  currentNum += num;
+  displayCurrentNum.textContent = currentNum;
+}
+
+function getOperator(op) {
+  if (operator == "") {
+    previousNum = currentNum;
+  } else if (previousNum != "") {
+    previousNum = operate(
+      parseFloat(previousNum),
+      parseFloat(currentNum),
+      operator
+    );
+  }
+  displayPreviousNum.textContent = previousNum + " " + op;
+  operator = op;
+  currentNum = "";
+  displayCurrentNum.innerHTML = previousNum;
+}
+
 equalSign.addEventListener("click", () => {
   operate(parseFloat(firstNumber), parseFloat(secondNumber), operator);
-  displayResult.innerHTML = result;
+  // displayResult.innerHTML = result;
 });

@@ -61,6 +61,8 @@ operators.forEach((op) => {
   });
 });
 
+equalSign.addEventListener("click", getResult);
+
 function getNumber(num) {
   currentNum += num;
   displayCurrentNum.textContent = currentNum;
@@ -82,7 +84,13 @@ function getOperator(op) {
   displayCurrentNum.innerHTML = previousNum;
 }
 
-equalSign.addEventListener("click", () => {
-  operate(parseFloat(firstNumber), parseFloat(secondNumber), operator);
-  // displayResult.innerHTML = result;
-});
+function getResult() {
+  previousNum = operate(
+    parseFloat(previousNum),
+    parseFloat(currentNum),
+    operator
+  );
+  displayCurrentNum.innerHTML = previousNum;
+  displayPreviousNum.innerHTML += " " + currentNum;
+  previousNum += currentNum;
+}

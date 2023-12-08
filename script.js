@@ -92,5 +92,6 @@ function getResult() {
   );
   displayCurrentNum.innerHTML = previousNum;
   displayPreviousNum.innerHTML += " " + currentNum;
+  // currentNum = 0;
   previousNum += currentNum;
 }
